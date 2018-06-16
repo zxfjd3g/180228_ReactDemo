@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import PubSub from 'pubsub-js'
 
 export default class Search extends Component {
   static propTypes = {
@@ -9,9 +8,7 @@ export default class Search extends Component {
   search = () => {
     const searchName = this.refs.searchName.value
     if(searchName) {
-      // this.props.setSearchName(searchName)
-      // 发布消息(search)
-      PubSub.publish('search', searchName)
+      this.props.setSearchName(searchName)
     }
   }
 
