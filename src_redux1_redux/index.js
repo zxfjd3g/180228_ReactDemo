@@ -4,9 +4,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {createStore} from 'redux'
-import {Provider} from 'react-redux'
 
-import App from './containers/app'
+import App from './components/app'
 import {count} from './redux/reducers'
 
 
@@ -15,9 +14,13 @@ import {count} from './redux/reducers'
 const store = createStore(count) // 内部会第一次调用reducer产生初始状态
 
 
+function render () {
   ReactDOM.render((
-    <Provider store={store}>
-      <App/>
-    </Provider>
-
+    <App store={store}/>
   ), document.getElementById('root'))
+}
+
+render() // 初始渲染
+
+// 订阅监听(store中状态的改变)
+store.subscribe(render)
