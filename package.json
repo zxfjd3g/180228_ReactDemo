@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd-mobile": "^2.2.0",
     "axios": "^0.18.0",
     "prop-types": "^15.6.1",
     "pubsub-js": "^1.6.0",
@@ -11,11 +12,16 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
   },
+
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "server": "serve build"
+  },
+
+  "devDependencies": {
+    "babel-plugin-import": "^1.8.0",
+    "react-app-rewired": "^1.5.2"
   }
 }

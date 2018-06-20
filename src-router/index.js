@@ -3,11 +3,12 @@
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {BrowserRouter, HashRouter} from 'react-router-dom'
 import App from './components/app'
-// 引入ant-mobile样式
-// import 'antd-mobile/dist/antd-mobile.css'
 
 
 ReactDOM.render((
+  <BrowserRouter>
     <App/>
+  </BrowserRouter>
 ), document.getElementById('root'))
