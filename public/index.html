@@ -51,5 +51,32 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <script type="text/javascript">
+    const arr = [1, 3, 5, 7, 8]
+    
+    const result1 = arr.reduce(function (preTotal, item) {
+      return preTotal + (item%2===1 ? item : 0)
+    }, 0)
+    console.log(result1)
+    
+    Array.prototype.reduce2 = function () {
+      let total = 0
+      this.forEach(item => total += item)
+      return total
+    }
+    
+    console.log(arr.reduce2())
+
+
+    Array.prototype.reduce3 = function (reducer, initValue) {
+      let result = initValue
+      this.forEach(item => {
+        result = reducer(result, item)
+      })
+      return result
+    }
+    const result2 = arr.reduce3((preTotal, item) => preTotal + item,  0)
+    console.log(result2)
+  </script>
   </body>
 </html>
