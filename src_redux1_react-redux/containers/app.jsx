@@ -3,12 +3,12 @@
  */
 import {connect} from 'react-redux'
 import Counter from '../components/counter'
-import {increment, decrement, incrementAsync} from '../redux/actions'
+import {increment, decrement} from '../redux/actions'
 
 
 export default connect(
   state => ({count: state}),
-  {increment, decrement, incrementAsync}
+  {increment, decrement}
 )(Counter)
 /*
 向外暴露是包含UI组件Counter的容器组件
