@@ -1,16 +1,20 @@
-/*
-包含n个reducer函数的对象
-reducer函数: 根据老的state和指定的action, 返回一个新的state
- */
-import {INCREMENT, DECREMENT} from './action-types'
+import {ADD_COMMENT, DELETE_COMMENT} from './action-types'
 
-export function count(state = 1, action) {
-  console.log('count()',state, action)
+
+const initComments = [
+  {username: 'damu', content: 'react不会!'},
+  {username: 'sadamu', content: 'react真不会!'},
+]
+export function comments (state=initComments, action) {
   switch (action.type) {
-    case INCREMENT:
-      return state + action.number
-    case DECREMENT:
-      return state - action.number
+    case ADD_COMMENT:
+      const comment = action.data
+      // state.unshift(comment) // 纯函数不能改变参数
+      return [comment, ...state]
+    case DELETE_COMMENT:
+      const index = action.data
+      // state.splice(index, 1)
+      return state.filter((comment, i) => i!==index)
     default:
       return state
   }
